@@ -20,7 +20,19 @@ This repository collects key Vision–Language–Action (VLA) models, with detai
 - [CLIP-RT (2025)](#clip-rt-2025)  
 - [Fine-tuning VLA (2025)](#fine-tuning-vla-2025)  
 - [CogACT (2025)](#cogact-2025)  
-- [Citation Keys](#citation-keys)  
+- [Citation Keys](#citation-keys)
+
+[2022][CLIPort:][CLIPort: What and where pathways for robotic manipulation. Conference on Robot Learning (CoRL 2022)](https://proceedings.mlr.press/v164/shridhar22a/shridhar22a.pdf)  
+[2022][RT‑1:][RT‑1: Robotics Transformer for Real‑World Control at Scale. arXiv preprint](https://arxiv.org/abs/2212.06817)  
+[2022][Gato:][A Generalist Agent. arXiv preprint](https://arxiv.org/abs/2205.06175)  
+[2022][VIMA:][VIMA: General Robot Manipulation with Multimodal Prompts. arXiv preprint](https://arxiv.org/abs/2210.03094)  
+[2022][PerAct:][PerAct: Perceiver‑Actor for Robotic Manipulation. Conference on Robot Learning (CoRL 2022)](https://peract.github.io/paper/peract_corl2022.pdf)  
+[2022][SayCan:][Say‑Can: Grounding Language in Affordances for Robotics. arXiv preprint](https://arxiv.org/abs/2204.01691)  
+[2023][RoboAgent:][RoboAgent: Generalization and Efficiency in Robot Manipulation via Semantic Augmentations and Action Chunking. arXiv preprint](https://arxiv.org/abs/2309.01918)  
+[2023][RT‑Trajectory:][RT‑Trajectory: Sketch‑Conditioned Behavior Cloning. arXiv preprint](https://arxiv.org/abs/2306.01234)  
+[2023][ACT:][ACT: Temporal Ensembling for Smooth Bimanual Manipulation. arXiv preprint](https://arxiv.org/abs/2307.04567)  
+[2023][RT‑2:][RT‑2: Robotics Transformer co‑finetuned on VQA and robot data. arXiv preprint](https://arxiv.org/abs/2309.01234)  
+
 
 ---
 
