@@ -29,7 +29,7 @@ We aim to keep this list up to date as new VLA models, datasets, and simulation 
 [2022][RT-1:][Rt-1: Robotics transformer for real‑world control at scale](https://arxiv.org/abs/2212.06817)  
 [2022][Gato:][A Generalist Agent](https://arxiv.org/abs/2205.06175)  
 [2022][VIMA:][VIMA: General Robot Manipulation with Multimodal Prompts](https://arxiv.org/abs/2210.03094)  
-[2022][PerAct:][Title TBD](Link TBD)  
+[2022][PerAct:][PERCEIVER-ACTOR:A Multi-Task Transformer for Robotic Manipulation](https://peract.github.io/paper/peract_corl2022.pdf) 
 [2022][SayCan:][Do As I Can, Not As I Say: Grounding Language in Robotic Affordances](https://arxiv.org/abs/2204.01691)  
 [2023][RoboAgent:][RoboAgent: Generalist Robot Agent with Semantic and Temporal Understanding](https://arxiv.org/abs/2310.08560)  
 [2023][RT-Trajectory:][Robotic Task Generalization via Hindsight Trajectory Sketches](https://arxiv.org/abs/2311.01977)  
