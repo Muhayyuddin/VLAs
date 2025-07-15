@@ -67,7 +67,7 @@ This repository collects key Vision–Language–Action (VLA) models, with detai
 [2025][OTTER:][OTTER: A Vision‑Language‑Action Model with Text‑Aware Visual Feature Extraction](Link TBD)  
 [2025][pi‑0.5:][π‑0.5: A VLA Model with Open‑World Generalization](Link TBD)  
 [2025][OneTwoVLA:][OneTwoVLA: A Unified Model with Adaptive Reasoning](Link TBD)  
-[YYYY][Helix:][Title TBD](Link TBD)  
+[2025][Helix:][Title TBD](Link TBD)  
 [2025][SmolVLA:][SmolVLA: A Vision‑Language‑Action Model for Affordable and Efficient Robotics](Link TBD)
 
 
