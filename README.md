@@ -1,6 +1,17 @@
 # Vision–Language–Action (VLA) Models in Robotics
 
-This repository collects key Vision–Language–Action (VLA) models, with details on their training data, robot platforms, summaries, and links to papers and project websites.
+This repository was developed alongside the paper **“Vision–Language–Action (VLA) Models in Robotics”** and provides a living catalog of:
+
+- **VLA Models**  
+  Key vision–language–action architectures, with publication year, core capabilities, training datasets, robot platforms, summary descriptions, and links to the original papers and project websites.
+
+- **Datasets**  
+  Major benchmarks and large‑scale collections used to train and evaluate VLA systems, including QA/navigation corpora, manipulation demonstrations, and multimodal embodiment data.
+
+- **Simulators**  
+  Widely adopted simulation platforms for generating VLA data—spanning photorealistic navigation, dexterous manipulation, multi‑robot coordination, and more—each linked to its official website.
+
+We aim to keep this list up to date as new VLA models, datasets, and simulation tools emerge. Contributions and pull requests adding recently published work or tooling are most welcome!  
 
 ---
 
