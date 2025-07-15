@@ -5,10 +5,15 @@ This repository collects key Vision–Language–Action (VLA) models, with detai
 ---
 
 ## Table of Contents
+- [VLA Models](#vla-models)  
+- [Datasets](#datasets)  
+- [Simulators](#simulators)
 
 
 
 ---
+# VLA Models
+
 [2022][CLIPort:][Cliport: What and where pathways for robotic manipulation](https://proceedings.mlr.press/v164/shridhar22a/shridhar22a.pdf)  
 [2022][RT-1:][Rt-1: Robotics transformer for real‑world control at scale](https://arxiv.org/abs/2212.06817)  
 [2022][Gato:][A Generalist Agent](https://arxiv.org/abs/2205.06175)  
@@ -110,8 +115,35 @@ This repository collects key Vision–Language–Action (VLA) models, with detai
 [2025][CognitiveDrone:][CognitiveDrone: Embodied Reasoning VLA for UAV Planning](Link TBD)  
 [2024][Diffusion-VLA:][Diffusion-VLA: Diffusion-Based Policy for Generalizable Manipulation](Link TBD)  
 
+# Datasets
+[2018][EmbodiedQA:][Embodied Question Answering](Link TBD)  
+[2018][R2R:][Vision-and-Language Navigation: Interpreting Visually‑Grounded Navigation Instructions in Real Environments](Link TBD)  
+[2020][ALFRED:][ALFRED](https://arxiv.org/abs/1912.01734)  
+[2020][RLBench:][RLBench: The Robot Learning Benchmark & Learning Environment](Link TBD)  
+[2019][CVDN (NDH):][Vision‑and‑Dialog Navigation](https://arxiv.org/abs/1907.04957)  
+[2021][TEACh:][TEACh: Task‑driven Embodied Agents that Chat](https://arxiv.org/abs/2110.00534)  
+[2022][DialFRED:][DialFRED: Dialogue‑Enabled Agents for Embodied Instruction Following](Link TBD)  
+[2022][Ego4D:][Ego4D: Around the World in 3,000 Hours of Egocentric Video](https://arxiv.org/abs/2110.07058)  
+[2022][CALVIN:][CALVIN: A Benchmark for Language‑Conditioned Long‑Horizon Robot Manipulation Tasks](https://arxiv.org/abs/2112.03227)  
+[2024][DROID:][DROID: A Large‑Scale In‑The‑Wild Robot Manipulation Dataset](https://droid-dataset.github.io/)  
+[2025][Open X-Embodiment:][Open X-Embodiment: Robotic Learning Datasets and RT‑X Models](https://arxiv.org/abs/2310.08864)  
+[2025][RoboSpatial:][RoboSpatial: Teaching Spatial Understanding via Vision‑Language Models for Robotics](https://arxiv.org/abs/2411.16537)  
+[2024][CoVLA:][CoVLA: Comprehensive Vision‑Language‑Action Dataset for Autonomous Driving](https://arxiv.org/abs/2408.10845)  
+[2025][TLA:][TLA: Tactile‑Language‑Action Model for Contact‑Rich Manipulation](https://arxiv.org/abs/2503.08548)  
+[2023][BridgeData V2:][BridgeData V2: A Dataset for Robot Learning at Scale](Link TBD)  
+[2023][LIBERO:][LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning](Link TBD)  
+[2025][Kaiwu:][Kaiwu: A Multimodal Manipulation Dataset and Framework for Robotic Perception and Interaction](https://arxiv.org/abs/2503.05231)  
+[2025][PLAICraft:][PLAICraft: Large‑Scale Time‑Aligned Vision‑Speech‑Action Dataset for Embodied AI](https://arxiv.org/abs/2505.12707)  
+[2025][AgiBot World:][AgiBot World Colosseo: A Large‑Scale Manipulation Dataset for Intelligent Embodied Systems](https://arxiv.org/abs/2503.06669)  
+[2023][Robo360:][Robo360: A 3D Omnispective Multi‑Modal Robotic Manipulation Dataset](https://arxiv.org/abs/2312.06686)  
+[2025][REASSEMBLE:][REASSEMBLE: A Multimodal Dataset for Contact‑Rich Robotic Assembly and Disassembly](https://arxiv.org/abs/2502.05086)  
+[2025][RoboCerebra:][RoboCerebra: A Large‑Scale Benchmark for Long‑Horizon Robotic Manipulation Evaluation](https://arxiv.org/abs/2506.06677)  
+[2025][IRef‑VLA:][IRef‑VLA: A Benchmark for Interactive Referential Grounding with Imperfect Language in 3D Scenes](https://arxiv.org/abs/2503.17406)  
+[2025][Interleave‑VLA:][Interleave‑VLA: Enhancing Robot Manipulation with Interleaved Image‑Text Instructions](https://arxiv.org/abs/2406.07000)  
+[2024][RoboMM:][RoboMM: All‑in‑One Multimodal Large Model for Robotic Manipulation](https://arxiv.org/abs/2412.07215)  
+[2024][ARIO:][All Robots in One: A New Standard and Unified Dataset for Versatile, General‑Purpose Embodied Agents](https://arxiv.org/abs/2408.10899)
 
-
+# Simulators
 - [RT-1 (2022)](#rt-1-2022)  
 - [RT-1-X (2024)](#rt-1-x-2024)  
 - [RT-2 (2023)](#rt-2-2023)  
