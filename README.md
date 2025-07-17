@@ -144,7 +144,7 @@ Benchmarking VLA Datasets by Task Complexity and Modality Richness. Each bubble 
 [2019][Vision‑and‑Dialog Navigation](https://arxiv.org/abs/1907.04957)  
 [2021][TEACh: Task‑driven Embodied Agents that Chat](https://arxiv.org/abs/2110.00534)  
 [2022][DialFRED: Dialogue‑Enabled Agents for Embodied Instruction Following](https://arxiv.org/pdf/2202.13330.pdf)  
-[2022]Ego4D: Around the World in 3,000 Hours of Egocentric Video](https://arxiv.org/abs/2110.07058)  
+[2022][Ego4D: Around the World in 3,000 Hours of Egocentric Video](https://arxiv.org/abs/2110.07058)  
 [2022][CALVIN: A Benchmark for Language‑Conditioned Long‑Horizon Robot Manipulation Tasks](https://arxiv.org/abs/2112.03227)  
 [2024][DROID: A Large‑Scale In‑The‑Wild Robot Manipulation Dataset](https://droid-dataset.github.io/)  
 [2025][Open X-Embodiment: Robotic Learning Datasets and RT‑X Models](https://arxiv.org/abs/2310.08864)  
