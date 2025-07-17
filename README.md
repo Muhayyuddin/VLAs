@@ -1,22 +1,18 @@
 # Vision–Language–Action (VLA) Models in Robotics
 
-This repository was developed alongside the paper **“Vision–Language–Action (VLA) Models in Robotics”** and provides a living catalog of:
+This repository was developed alongside the paper **“Vision Language Action Models in Robotic Manipulation: A Systematic Review ”** and provides a living catalog of:
 
 - **Dataset Benchmarking Code**  
   Code to benchmark the datasets based on the task complexity and modality richness.
   
 - **VLA Models**  
   Key vision–language–action models that are used in the review, with links to the original papers.
-
 - **Datasets**  
   Major benchmarks and large‑scale collections used to train and evaluate VLA systems, including QA/navigation datasets, manipulation demonstrations, and multimodal embodiment data.
-
 - **Simulators**  
   Widely adopted simulation platforms for generating VLA data—spanning photorealistic navigation, dexterous manipulation, multi‑robot coordination, and more—each linked to its official website.
 
 We aim to keep this list up to date as new VLA models, datasets, and simulation tools emerge. Contributions and pull requests adding recently published work or tooling are most welcome!  
-
-
 ---
 
 ## Table of Contents
@@ -24,6 +20,7 @@ We aim to keep this list up to date as new VLA models, datasets, and simulation 
 - [VLA Models](#vla-models)  
 - [Datasets](#datasets)  
 - [Simulators](#simulators)
+- [Reference for Citation](#reference)
 
 
 
@@ -178,6 +175,17 @@ Benchmarking VLA Datasets by Task Complexity and Modality Richness. Each bubble 
 [2023][UniSim:][UniSim](https://universal-simulator.github.io/unisim/)  
 [2020][SAPIEN:][SAPIEN](https://sapien.ucsd.edu) 
 
-
+# Reference
+```
+@misc{din2025visionlanguageactionmodels,
+      title={Vision Language Action Models in Robotic Manipulation: A Systematic Review}, 
+      author={Muhayy Ud Din and Waseem Akram and Lyes Saad Saoud and Jan Rosell and Irfan Hussain},
+      year={2025},
+      eprint={2507.10672},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2507.10672}, 
+}
+```
 
 
