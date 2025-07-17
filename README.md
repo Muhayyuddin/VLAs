@@ -13,6 +13,7 @@ This repository was developed alongside the paper **“Vision Language Action Mo
   Widely adopted simulation platforms for generating VLA data—spanning photorealistic navigation, dexterous manipulation, multi‑robot coordination, and more—each linked to its official website.
 
 We aim to keep this list up to date as new VLA models, datasets, and simulation tools emerge. Contributions and pull requests adding recently published work or tooling are most welcome!  
+
 ---
 
 ## Table of Contents
@@ -32,6 +33,16 @@ Benchmarking VLA Datasets by Task Complexity and Modality Richness. Each bubble 
 
 [Code](https://github.com/Muhayyuddin/VLAs/blob/main/dataset_plot.py)
 # VLA Models
+
+![VLA Models Trend](https://github.com/Muhayyuddin/VLAs/blob/main/VLA.png)
+The top row presents major VLA
+models introduced each year, alongside their associated institutions. The bottom row
+displays key datasets used to train and evaluate VLA models, grouped by release year. The figure highlights the
+increasing scale and diversity of datasets and institutional involvement, with contributions from academic (e.g.,
+CMU, CNRS, UC, Peking Uni) and industrial labs (e.g., Google, NVIDIA, Microsoft). This timeline highlights
+the rapid advancements in VLA research.
+
+Below is the list of the VLAs reviewed in the paper
 
 [2022][Cliport: What and where pathways for robotic manipulation](https://proceedings.mlr.press/v164/shridhar22a/shridhar22a.pdf)  
 [2022][Rt-1: Robotics transformer for real‑world control at scale](https://arxiv.org/abs/2212.06817)  
