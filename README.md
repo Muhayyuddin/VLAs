@@ -15,7 +15,7 @@ We aim to keep this list up to date as new VLA models, datasets, and simulation 
 
 ![Dataset Benchmarking](https://github.com/Muhayyuddin/VLAs/blob/main/benchmarkdataset.png)
 
-[Code]{https://github.com/Muhayyuddin/VLAs/blob/main/dataset_plot.py}
+[Code](https://github.com/Muhayyuddin/VLAs/blob/main/dataset_plot.py)
 
 ---
 
