@@ -2,24 +2,25 @@
 
 This repository was developed alongside the paper **“Vision–Language–Action (VLA) Models in Robotics”** and provides a living catalog of:
 
+- **Dataset Benchmarking Code**  
+  Code to benchmark the datasets based on the task complexity and modality richness.
+  
 - **VLA Models**  
-  Key vision–language–action architectures, with publication year, core capabilities, training datasets, robot platforms, summary descriptions, and links to the original papers and project websites.
+  Key vision–language–action models that are used in the review, with links to the original papers.
 
 - **Datasets**  
-  Major benchmarks and large‑scale collections used to train and evaluate VLA systems, including QA/navigation corpora, manipulation demonstrations, and multimodal embodiment data.
+  Major benchmarks and large‑scale collections used to train and evaluate VLA systems, including QA/navigation datasets, manipulation demonstrations, and multimodal embodiment data.
 
 - **Simulators**  
   Widely adopted simulation platforms for generating VLA data—spanning photorealistic navigation, dexterous manipulation, multi‑robot coordination, and more—each linked to its official website.
 
 We aim to keep this list up to date as new VLA models, datasets, and simulation tools emerge. Contributions and pull requests adding recently published work or tooling are most welcome!  
 
-![Dataset Benchmarking](https://github.com/Muhayyuddin/VLAs/blob/main/benchmarkdataset.png)
-
-[Code](https://github.com/Muhayyuddin/VLAs/blob/main/dataset_plot.py)
 
 ---
 
 ## Table of Contents
+- [Dataset Benchmarking Code]
 - [VLA Models](#vla-models)  
 - [Datasets](#datasets)  
 - [Simulators](#simulators)
@@ -27,6 +28,12 @@ We aim to keep this list up to date as new VLA models, datasets, and simulation 
 
 
 ---
+# Dataset Benchmarking Code 
+Benchmarking VLA Datasets by Task Complexity and Modality Richness. Each bubble represents a VLA dataset, positioned according to its normalized task-complexity score (x-axis) and its modality-richness score (y-axis). The bubble area is proportional to the dataset scale that is number of annotated episodes or interactions. 
+
+![Dataset Benchmarking](https://github.com/Muhayyuddin/VLAs/blob/main/benchmarkdataset.png)
+
+[Code](https://github.com/Muhayyuddin/VLAs/blob/main/dataset_plot.py)
 # VLA Models
 
 [2022][CLIPort:][Cliport: What and where pathways for robotic manipulation](https://proceedings.mlr.press/v164/shridhar22a/shridhar22a.pdf)  
