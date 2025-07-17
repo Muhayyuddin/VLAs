@@ -20,7 +20,7 @@ We aim to keep this list up to date as new VLA models, datasets, and simulation 
 ---
 
 ## Table of Contents
-- [Dataset Benchmarking Code]
+- [Dataset Benchmarking Code](#Dataset-Benchmarking-Code)
 - [VLA Models](#vla-models)  
 - [Datasets](#datasets)  
 - [Simulators](#simulators)
