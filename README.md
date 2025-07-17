@@ -13,6 +13,8 @@ This repository was developed alongside the paper **“Vision–Language–Actio
 
 We aim to keep this list up to date as new VLA models, datasets, and simulation tools emerge. Contributions and pull requests adding recently published work or tooling are most welcome!  
 
+![Dataset Benchmarking](https://github.com/Muhayyuddin/VLAs/blob/main/benchmarkdataset.png)
+
 ---
 
 ## Table of Contents
