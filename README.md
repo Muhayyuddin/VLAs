@@ -143,6 +143,7 @@ Below is the list of the VLAs reviewed in the paper
 [2025][VLAS: Voice‑Driven Vision‑Language‑Action Control](https://arxiv.org/pdf/2502.13508.pdf)  
 [2025][ChatVLA: Conversational VLA for Interactive Control](https://arxiv.org/pdf/2502.14420.pdf)  
 [2024][Diffusion‑VLA: Diffusion‑Based Policy for Generalizable Manipulation](https://arxiv.org/pdf/2412.03293.pdf)  
+[2025][RoboRefer: Towards Spatial Referring with Reasoning in Vision-Language Models for Robotics](https://arxiv.org/pdf/2506.04308.pdf)  
 
 # Datasets
 [2018][EmbodiedQA: Embodied Question Answering](https://openaccess.thecvf.com/content_cvpr_2018/papers_backup/Das_Embodied_Question_Answering_CVPR_2018_paper.pdf)  
@@ -171,6 +172,7 @@ Below is the list of the VLAs reviewed in the paper
 [2025][Interleave‑VLA: Enhancing Robot Manipulation with Interleaved Image‑Text Instructions](https://arxiv.org/abs/2406.07000)  
 [2024][RoboMM: All‑in‑One Multimodal Large Model for Robotic Manipulation](https://arxiv.org/abs/2412.07215)  
 [2024][All Robots in One: A New Standard and Unified Dataset for Versatile, General‑Purpose Embodied Agents](https://arxiv.org/abs/2408.10899)
+[2025][RoboRefer: Towards Spatial Referring with Reasoning in Vision-Language Models for Robotics](https://arxiv.org/pdf/2506.04308.pdf)  
 
 # Simulators
 [2017][AI2-THOR:][AI2-THOR](https://ai2thor.allenai.org)  
