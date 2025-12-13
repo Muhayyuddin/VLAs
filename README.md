@@ -18,6 +18,7 @@ We aim to keep this list up to date as new VLA models, datasets, and simulation 
 
 ## Table of Contents
 - [Dataset Benchmarking Code](#Dataset-Benchmarking-Code)
+- [VLA Models Evaluation & Visualization](#vla-models-evaluation--visualization)
 - [VLA Models](#vla-models)  
 - [Datasets](#datasets)  
 - [Simulators](#simulators)
@@ -32,6 +33,57 @@ Benchmarking VLA Datasets by Task Complexity and Modality Richness. Each bubble 
 ![Dataset Benchmarking](https://github.com/Muhayyuddin/VLAs/blob/main/benchmarkdataset.png)
 
 [Code](https://github.com/Muhayyuddin/VLAs/blob/main/dataset_plot.py)
+
+---
+
+# VLA Models Evaluation & Visualization
+
+This repository includes a comprehensive analysis and visualization suite for evaluating Vision-Language-Action (VLA) models. The analysis covers multiple aspects of VLA model performance, architecture components, and theoretical foundations through detailed visualizations and statistical analysis.
+
+## Key Analysis Features
+
+- **Forest Plot Analysis**: Comparative performance metrics across different VLA models
+- **Encoder Component Analysis**: Deep dive into visual encoder architectures and their impact on performance  
+- **Domain Analysis**: Cross-domain performance evaluation and transfer capabilities
+- **Fusion Theory Visualization**: Analysis of multimodal fusion strategies in VLA models
+- **VLA-FEB Score Distribution**: Histogram analysis of the VLA Fusion-Encoder-Backbone composite metric
+
+## Quick Start for Analysis
+
+### Setup Environment
+```bash
+cd Plot_script/
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### Generate All Visualizations
+```bash
+python final_plots.py
+```
+
+## Key Metrics & Files
+
+- **`new_vla_models.csv`**: Complete dataset with 101 VLA models and comprehensive evaluation metrics
+- **`top75.csv`**: Curated subset featuring VLA-FEB component scores (CMAS, E_fusion, R2S, GI)
+- **VLA-FEB Score**: Composite metric combining Cross-Modal Alignment Score (CMAS), Fusion Energy (E_fusion), Real-to-Sim Transfer (R2S), and Generalization Index (GI)
+- **Adjusted Success Rate**: Normalized task success rates on a 0-1 scale
+- **Generalization Index**: Quantitative measure of multi-task capability
+- **Difficulty Index**: Task complexity assessment metric
+
+## Generated Visualizations
+
+All publication-ready figures are automatically saved to the `plots/` directory in multiple formats (PNG/SVG/PDF):
+
+- **Forest Plot**: Performance comparison across VLA models with confidence intervals
+- **Encoder Analysis**: 4-panel analysis of visual encoder impact on model performance
+- **Domain Component Analysis**: Cross-domain performance patterns and transfer learning effectiveness  
+- **Fusion Theory Visualization**: 3-panel theoretical framework visualization
+- **VLA-FEB Histogram**: Distribution analysis of composite evaluation scores
+- **Scale Analysis**: Model scale vs. performance relationship analysis
+
+
 # VLA Models
 
 ![VLA Models Trend](https://github.com/Muhayyuddin/VLAs/blob/main/VLA.png)
@@ -188,17 +240,5 @@ Below is the list of the VLAs reviewed in the paper
 [2023][UniSim:][UniSim](https://universal-simulator.github.io/unisim/)  
 [2020][SAPIEN:][SAPIEN](https://sapien.ucsd.edu) 
 
-# Reference
-```
-@misc{din2025visionlanguageactionmodels,
-      title={Vision Language Action Models in Robotic Manipulation: A Systematic Review}, 
-      author={Muhayy Ud Din and Waseem Akram and Lyes Saad Saoud and Jan Rosell and Irfan Hussain},
-      year={2025},
-      eprint={2507.10672},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2507.10672}, 
-}
-```
 
 
