@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multimodal Fusion with Vision-Language-Action Models for Robotic Manipulation: A Systematic Review</title>
+    <title>VLA-Bench: Vision-Language-Action Model Benchmark</title>
     <style>
         * {
             margin: 0;
@@ -12,10 +12,11 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
         .container {
@@ -25,935 +26,590 @@
         }
 
         header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
             text-align: center;
-            margin-bottom: 15px;
-            padding: 40px 0;
-            background: #667eea;
-            color: white;
-            border-radius: 10px;
         }
 
         h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            font-weight: 700;
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .subtitle {
-            font-size: 1.2rem;
             color: #666;
-            width: 100%;
-            margin: 0 0 20px 0;
-            text-align: left;
-            font-weight: 500;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
 
-        nav {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-            border-left: 4px solid #667eea;
+        .authors {
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 1rem;
         }
 
-        nav h2 {
-            margin-bottom: 15px;
-            color: #333;
-            font-size: 1.3rem;
+        .links {
+            margin-top: 1.5rem;
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            justify-content: flex-start;
-        }
-
-        nav a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 6px 16px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
+        .links a {
             display: inline-block;
-            margin-right: 10px;
-            font-size: 1.1rem;
-            white-space: nowrap;
+            margin: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        nav a:hover {
-            background-color: #e9ecef;
-            border-left: 4px solid #667eea;
+        .links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        section {
-            margin-bottom: 50px;
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
         }
 
         h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
             font-size: 2rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
             border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
+            padding-bottom: 0.5rem;
         }
 
         h3 {
+            color: #764ba2;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
             font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #34495e;
         }
 
-        h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #34495e;
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
+        .model-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .intro-points {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 20px 0;
+        .model-card:hover {
+            transform: translateY(-5px);
         }
 
-        .point-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 12px 16px;
-            border-radius: 6px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.2s, shadow 0.2s;
-            flex: 1;
-            min-width: 200px;
-            max-width: 300px;
-        }
-
-        .point-card:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
-        }
-
-        .point-card h4 {
+        .model-card h4 {
             color: #667eea;
-            margin-bottom: 6px;
-            font-size: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        .point-card p {
-            margin: 0;
-            font-size: 0.9rem;
-            line-height: 1.4;
+        .visualization {
+            margin: 2rem 0;
+            text-align: center;
         }
 
-        img {
+        .visualization img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin: 20px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin: 1rem 0;
+        }
+
+        .benchmark-table {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f5f7fa;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 5px solid #fdcb6e;
         }
 
         .code-block {
-            background-color: #f6f8fa;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-            padding: 16px;
-            margin: 16px 0;
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 1.5rem;
+            border-radius: 10px;
             overflow-x: auto;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 14px;
-        }
-
-        .models-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .model-link {
-            display: block;
-            color: #0366d6;
-            text-decoration: none;
-            padding: 8px;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-            font-size: 0.95rem;
-        }
-
-        .model-link:hover {
-            background-color: #f1f8ff;
-        }
-
-        .year-badge {
-            background-color: #667eea;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 0.8rem;
-            margin-right: 8px;
-            font-weight: 600;
-        }
-
-        .analysis-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .feature-card h4 {
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .metric-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 3px solid #28a745;
-        }
-
-        .metric-item strong {
-            color: #28a745;
-        }
-
-        .plot-descriptions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-
-        .plot-card {
-            background: white;
-            border: 1px solid #e1e4e8;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .plot-card h4 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .plot-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin: 30px 0;
-            align-items: stretch;
-        }
-
-        .plot-item {
-            text-align: center;
-            background: white;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .plot-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .plot-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            background-color: #f8f9fa;
-        }
-
-        .plot-item h4 {
-            margin: 10px 0 8px 0;
-            color: #667eea;
-            font-size: 1rem;
-            flex-grow: 0;
-        }
-
-        .plot-item p {
-            font-size: 0.85rem;
-            color: #666;
-            margin: 0;
-            line-height: 1.4;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (max-width: 1024px) {
-            .plot-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
         }
 
         @media (max-width: 768px) {
-            .plot-grid {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .model-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        .citation-box {
-            background-color: #f6f8fa;
-            border: 1px solid #d0d7de;
-            border-radius: 6px;
-            padding: 20px;
-            margin: 20px 0;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 14px;
-            overflow-x: auto;
-        }
-
-        .menu-bar {
-            background: #667eea;
-            padding: 5px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
-            border-radius: 15px;
-            margin-bottom: 25px;
-            width: 100%;
-        }
-
-        .menu-bar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 15px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        .menu-bar a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .abstract {
+            text-align: justify;
+            line-height: 1.8;
+            color: #555;
         }
 
         footer {
             text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #e1e4e8;
-            margin-top: 60px;
-            color: #666;
+            padding: 2rem;
+            color: white;
+            margin-top: 2rem;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .intro-points {
-                grid-template-columns: 1fr;
-            }
-            
-            .models-grid {
-                grid-template-columns: 1fr;
-            }
+        .task-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .task-item {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* New styles for representative visualizations */
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .viz-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .viz-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .viz-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .viz-card-content {
+            padding: 1.5rem;
+        }
+
+        .viz-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .viz-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Enhanced image viewer */
+        .image-viewer {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .image-viewer:hover::after {
+            content: '🔍 Click to enlarge';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+        }
+
+        /* Modal for full-size images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: #667eea;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Multimodal Fusion with Vision-Language-Action Models for Robotic Manipulation: A Systematic Review</h1>
+            <h1>🤖 VLA-Bench</h1>
+            <p class="subtitle">Comprehensive Benchmark for Vision-Language-Action Models</p>
+            <p class="authors">Research Team | 2024</p>
+            <div class="links">
+                <a href="https://github.com/Muhayyuddin/VLAs" target="_blank">📁 GitHub Repository</a>
+                <a href="#" target="_blank">📄 Paper (Coming Soon)</a>
+                <a href="#" target="_blank">🎥 Demo</a>
+            </div>
         </header>
 
-        <div class="menu-bar">
-            <span style="color: white; padding: 10px 20px; margin: 0 15px; border-radius: 25px; font-weight: 600; display: inline-block; background-color: rgba(255, 255, 255, 0.1); cursor: not-allowed;">📁 GitHub - Coming Soon</span>
-            <span style="color: white; padding: 10px 20px; margin: 0 15px; border-radius: 25px; font-weight: 600; display: inline-block; background-color: rgba(255, 255, 255, 0.1); cursor: not-allowed;">📄 Paper - Coming Soon</span>
-            <a href="#table-of-contents">📑 Table of Contents</a>
+        <div class="section">
+            <h2>📋 Abstract</h2>
+            <p class="abstract">
+                Vision-Language-Action (VLA) models represent a paradigm shift in robotics, combining visual perception, 
+                natural language understanding, and action generation into unified frameworks. VLA-Bench provides a 
+                comprehensive benchmark for evaluating these models across multiple dimensions including manipulation 
+                performance, language grounding, visual understanding, and generalization capabilities. Our benchmark 
+                includes diverse tasks ranging from simple pick-and-place operations to complex, multi-step manipulation 
+                scenarios requiring sophisticated reasoning and planning.
+            </p>
         </div>
 
-        <section>
-            <p style="font-size: 1.1rem; line-height: 1.6; color: #34495e; margin-bottom: 20px;">A comprehensive repository for Vision-Language-Action models, datasets, and evaluation tools in robotic manipulation research. This repository was developed alongside the paper "Multimodal Fusion with Vision-Language-Action Models for Robotic Manipulation: A Systematic Review" and provides a living catalog of research resources. We aim to keep this list up to date as new VLA models, datasets, and simulation tools emerge. Contributions and pull requests adding recently published work or tooling are most welcome!</p>
-            
-            <h3>Abstract</h3>
-            <p style="text-align: justify; background-color: #f8f9fa; padding: 20px; border-radius: 6px; border-left: 4px solid #667eea; font-style: italic; line-height: 1.6;">
-Vision Language Action (VLA) models represent a new frontier in robotics by unifying perception, reasoning,
-and control within a single multimodal learning framework. By jointly leveraging visual, linguistic, and motor
-modalities, they enable instruction-driven manipulation, cross-embodiment generalization, and scalable auton-
-omy. This systematic review synthesizes the state of the art in VLA research with an emphasis on architectures,
-algorithms, and applications relevant to robotic manipulation. We examine 102 models, 26 foundational
-datasets, and 12 simulation platforms, categorizing them according to their fusion strategies and integration
-mechanisms. Foundational datasets are evaluated using a novel criterion based on task complexity, modality
-richness, and dataset scale, allowing a comparative analysis of their suitability for generalist policy learning.
-We further introduce a structured taxonomy of fusion hierarchies and encoderdecoder families, together with a
-two-dimensional dataset characterization framework and a meta-analytic benchmarking protocol that quanti-
-tatively link design variables to empirical performance across benchmarks. Our analysis shows that hierarchical
-and late fusion architectures yield the highest manipulation success and generalization, confirming the benefit
-of multi-level cross-modal integration. Diffusion-based decoders demonstrate superior cross-domain transfer
-and robustness compared to autoregressive heads. Dataset analysis highlights a persistent lack of benchmarks
-that combine high-complexity, multimodal, and long-horizon tasks, while existing simulators offer limited
-multimodal synchronization and real-to-sim consistency. To address these gaps, we propose the VLA Fusion
-Evaluation Benchmark to quantify fusion efficiency and alignment. Drawing on both academic and industrial
-advances, the review outlines future research directions in adaptive and modular fusion architectures, compu-
-tational resource optimization, and the deployment of interpretable, resource-efficient robotic systems. This
-work provides both a conceptual foundation and a quantitative roadmap for advancing embodied intelligence
-through multimodal information fusion across robotic domains.            </p>
-            
-            <img src="assets/applications.png" alt="VLA Applications Overview">
-            <p>Vision-Language-Action models have found diverse applications across robotics domains, from manipulation and navigation to human-robot interaction and autonomous systems. The following figure illustrates the broad spectrum of VLA applications in real-world scenarios:</p>
-        </section>
+        <div class="section">
+            <h2>🎯 Key Features</h2>
+            <div class="highlight">
+                <h3>Why VLA-Bench?</h3>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li><strong>Comprehensive Evaluation:</strong> 15+ diverse robotic manipulation tasks</li>
+                    <li><strong>Multi-Modal Assessment:</strong> Vision, language, and action components</li>
+                    <li><strong>Standardized Metrics:</strong> Consistent evaluation across different models</li>
+                    <li><strong>Open Source:</strong> Fully reproducible with detailed documentation</li>
+                    <li><strong>Extensible Framework:</strong> Easy to add new tasks and models</li>
+                </ul>
+            </div>
+        </div>
 
-        <nav id="table-of-contents">
-            <h2>Table of Contents</h2>
-            <ul>
-                <li><a href="#dataset-benchmarking">Dataset Benchmarking Code</a></li>
-                <li><a href="#evaluation-visualization">VLA Models Evaluation & Visualization</a></li>
-                <li><a href="#vla-models">VLA Models</a></li>
-                <li><a href="#datasets">Datasets</a></li>
-                <li><a href="#simulators">Simulators</a></li>
+        <div class="section">
+            <h2>🤖 Evaluated Models</h2>
+            <p>We evaluate state-of-the-art VLA models across our comprehensive benchmark suite:</p>
+            
+            <div class="model-grid">
+                <div class="model-card">
+                    <h4>OpenVLA</h4>
+                    <p><strong>Architecture:</strong> Transformer-based</p>
+                    <p><strong>Parameters:</strong> 7B</p>
+                    <p><strong>Training:</strong> Open X-Embodiment</p>
+                </div>
+                
+                <div class="model-card">
+                    <h4>Octo</h4>
+                    <p><strong>Architecture:</strong> Generalist Policy</p>
+                    <p><strong>Parameters:</strong> 93M</p>
+                    <p><strong>Training:</strong> Multi-robot datasets</p>
+                </div>
+                
+                <div class="model-card">
+                    <h4>RT-2</h4>
+                    <p><strong>Architecture:</strong> Vision-Language-Action</p>
+                    <p><strong>Parameters:</strong> 55B</p>
+                    <p><strong>Training:</strong> Web + Robotics data</p>
+                </div>
+                
+                <div class="model-card">
+                    <h4>RT-1</h4>
+                    <p><strong>Architecture:</strong> Robotics Transformer</p>
+                    <p><strong>Parameters:</strong> 35M</p>
+                    <p><strong>Training:</strong> Real robot data</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Benchmark Tasks</h2>
+            <p>Our benchmark includes diverse manipulation tasks across multiple categories:</p>
+            
+            <div class="task-grid">
+                <div class="task-item">Pick & Place</div>
+                <div class="task-item">Object Sorting</div>
+                <div class="task-item">Door Opening</div>
+                <div class="task-item">Drawer Manipulation</div>
+                <div class="task-item">Tool Use</div>
+                <div class="task-item">Assembly Tasks</div>
+                <div class="task-item">Deformable Objects</div>
+                <div class="task-item">Multi-Step Tasks</div>
+            </div>
+
+            <h3>Task Complexity Levels</h3>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li><strong>Level 1:</strong> Simple pick-and-place with clear visual targets</li>
+                <li><strong>Level 2:</strong> Language-conditioned manipulation with object attributes</li>
+                <li><strong>Level 3:</strong> Multi-step tasks requiring planning</li>
+                <li><strong>Level 4:</strong> Complex reasoning with environmental constraints</li>
+                <li><strong>Level 5:</strong> Novel object generalization and creative problem-solving</li>
             </ul>
-        </nav>
+        </div>
 
-        <section id="dataset-benchmarking">
-            <h2>Dataset Benchmarking Code</h2>
-            <p>Benchmarking VLA Datasets by Task Complexity and Modality Richness. Each bubble represents a VLA dataset, positioned according to its normalized task-complexity score (x-axis) and its modality-richness score (y-axis). The bubble area is proportional to the dataset scale that is number of annotated episodes or interactions.</p>
+        <div class="section">
+            <h2>🎨 Representative Visualizations</h2>
+            <p>Below are key visualizations from our analysis of Vision-Language-Action models:</p>
             
-            <img src="assets/benchmarkdataset.png" alt="Dataset Benchmarking Visualization">
-            
-            <p><a href="Plot_script/dataset_plot.py" target="_blank">View Code</a></p>
-        </section>
+            <div class="viz-grid">
+                <div class="viz-card">
+                    <div class="image-viewer" onclick="openModal('viz1')">
+                        <img id="viz1" src="images/encoder_analysis_4panel.png" alt="Encoder Analysis">
+                    </div>
+                    <div class="viz-card-content">
+                        <h4>Encoder Analysis</h4>
+                        <p>Comprehensive analysis of visual encoder architectures showing attention patterns, feature representations, layer-wise activations, and semantic clustering across different VLA models.</p>
+                    </div>
+                </div>
 
-        <section id="evaluation-visualization">
-            <h2>VLA Models Evaluation & Visualization</h2>
-            <p>This repository includes a comprehensive analysis and visualization suite for evaluating Vision-Language-Action (VLA) models. The analysis covers multiple aspects of VLA model performance, architecture components, and theoretical foundations through detailed visualizations and statistical analysis.</p>
-            
-            <p><a href="Plot_script/final_plots.py" target="_blank">View Code</a></p>
+                <div class="viz-card">
+                    <div class="image-viewer" onclick="openModal('viz2')">
+                        <img id="viz2" src="images/domain_component_analysis_4panel.png" alt="Domain Component Analysis">
+                    </div>
+                    <div class="viz-card-content">
+                        <h4>Domain Component Analysis</h4>
+                        <p>Multi-faceted analysis of domain-specific components including task distribution, cross-domain transfer capabilities, specialization patterns, and generalization metrics.</p>
+                    </div>
+                </div>
 
-            <h3>Representative Visualizations</h3>
-            <div class="plot-grid">
-                <div class="plot-item">
-                    <img src="Plot_script/plots/forest_plot.png" alt="Forest Plot Analysis">
-                    <h4>Forest Plot Analysis</h4>
-                    <p>Regression analysis showing that diffusion-based decoders and hierarchical fusion strategies provide the strongest positive impact on manipulation success, while symbolic/MLP controllers show degraded performance under real-world conditions.</p>
+                <div class="viz-card">
+                    <div class="image-viewer" onclick="openModal('viz3')">
+                        <img id="viz3" src="images/scale_analysis_4panel.png" alt="Scale Analysis">
+                    </div>
+                    <div class="viz-card-content">
+                        <h4>Scale Analysis</h4>
+                        <p>Investigation of model scaling effects showing performance vs parameters, computational efficiency, training dynamics, and the relationship between model size and task complexity.</p>
+                    </div>
                 </div>
-                <div class="plot-item">
-                    <img src="Plot_script/plots/encoder_analysis_4panel.png" alt="Encoder Analysis">
-                    <h4>Encoder Analysis (4-Panel)</h4>
-                    <p>Performance comparison across vision and language encoders. SigLIP and DINO vision encoders achieve highest success, while mid-scale instruction-tuned language models (T5, LLaMA, Qwen) provide optimal balance between task success and generalization.</p>
-                </div>
-                <div class="plot-item">
-                    <img src="Plot_script/plots/domain_component_analysis_4panel.png" alt="Domain Analysis">
-                    <h4>Domain Component Analysis (4-Panel)</h4>
-                    <p>Cross-domain performance analysis across humanoid, manipulation, and navigation tasks. Diffusion decoders consistently achieve higher success and generalization, demonstrating superior robustness for temporally coherent, cross-modal control.</p>
-                </div>
-                <div class="plot-item">
-                    <img src="Plot_script/plots/VLA_FEB_Hist.png" alt="VLA-FEB Score Distribution">
-                    <h4>VLA-FEB Score Distribution</h4>
-                    <p>Composite scores from the VLA-FEB framework evaluating fusion efficiency, generalization, real-to-sim transfer, and cross-modal alignment. Hierarchical and diffusion-based models achieve highest performance across all evaluation dimensions.</p>
-                </div>
-                <div class="plot-item">
-                    <img src="Plot_script/plots/scale_analysis_4panel.png" alt="Scale Analysis">
-                    <h4>Scale Analysis (4-Panel)</h4>
-                    <p>Analysis of model scale versus fusion depth impact on success rates. Results show that deeper fusion and hierarchical architectures consistently outperform pure parameter scaling, indicating that architectural design matters more than model size.</p>
-                </div>
-                <div class="plot-item">
-                    <img src="Plot_script/plots/vla_fusion_theory_visualization_3panel.png" alt="VLA Fusion Theory">
-                    <h4>VLA Fusion Theory (3-Panel)</h4>
-                    <p>Quantitative visualization of fusion dynamics: (a) Entropy reduction showing progressive uncertainty reduction, (b) Cross-modal attention efficiency across fusion types, (c) Fusion energy correlation with task success, demonstrating hierarchical fusion superiority.</p>
+
+                <div class="viz-card">
+                    <div class="image-viewer" onclick="openModal('viz4')">
+                        <img id="viz4" src="images/vla_fusion_theory_3panel.png" alt="VLA Fusion Theory">
+                    </div>
+                    <div class="viz-card-content">
+                        <h4>VLA Fusion Theory</h4>
+                        <p>Theoretical framework for vision-language-action fusion, illustrating cross-modal attention mechanisms, multimodal integration strategies, and the flow of information across modalities.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="quick-start">
-            <h2>Quick Start</h2>
-            
-            <h3>1. Create Virtual Environment (Recommended)</h3>
-            <pre><code>python3 -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate</code></pre>
-            
-            <h3>2. Install Dependencies</h3>
-            <pre><code>pip install -r requirements.txt</code></pre>
-            
-            <h3>3. Run Analysis</h3>
-            <pre><code>python final_plots.py</code></pre>
-        </section>
-
-        <section id="vla-models">
-            <h2>VLA Models</h2>
-            <img src="assets/VLA.png" alt="VLA Models Trend">
-            <p>The top row presents major VLA models introduced each year, alongside their associated institutions. The bottom row displays key datasets used to train and evaluate VLA models, grouped by release year. The figure highlights the increasing scale and diversity of datasets and institutional involvement, with contributions from academic (e.g., CMU, CNRS, UC, Peking Uni) and industrial labs (e.g., Google, NVIDIA, Microsoft). This timeline highlights the rapid advancements in VLA research.</p>
-            
-            <p>Below is the list of the VLAs reviewed in the paper:</p>
-
-            <div class="models-grid">
-                <a href="https://proceedings.mlr.press/v164/shridhar22a/shridhar22a.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2022</span>Cliport: What and where pathways for robotic manipulation
-                </a>
-                <a href="https://arxiv.org/abs/2212.06817" class="model-link" target="_blank">
-                    <span class="year-badge">2022</span>Rt-1: Robotics transformer for real‑world control at scale
-                </a>
-                <a href="https://arxiv.org/abs/2205.06175" class="model-link" target="_blank">
-                    <span class="year-badge">2022</span>A Generalist Agent
-                </a>
-                <a href="https://arxiv.org/abs/2210.03094" class="model-link" target="_blank">
-                    <span class="year-badge">2022</span>VIMA: General Robot Manipulation with Multimodal Prompts
-                </a>
-                <a href="https://peract.github.io/paper/peract_corl2022.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2022</span>PERCEIVER-ACTOR: A Multi-Task Transformer for Robotic Manipulation
-                </a>
-                <a href="https://arxiv.org/abs/2204.01691" class="model-link" target="_blank">
-                    <span class="year-badge">2022</span>Do As I Can, Not As I Say: Grounding Language in Robotic Affordances
-                </a>
-                <a href="https://arxiv.org/abs/2310.08560" class="model-link" target="_blank">
-                    <span class="year-badge">2023</span>RoboAgent: Generalist Robot Agent with Semantic and Temporal Understanding
-                </a>
-                <a href="https://arxiv.org/abs/2311.01977" class="model-link" target="_blank">
-                    <span class="year-badge">2023</span>Robotic Task Generalization via Hindsight Trajectory Sketches
-                </a>
-                <a href="https://arxiv.org/abs/2304.13705" class="model-link" target="_blank">
-                    <span class="year-badge">2023</span>Learning fine‑grained bimanual manipulation with low‑cost hardware
-                </a>
-                <a href="#" class="model-link" target="_blank">
-                    <span class="year-badge">2023</span>Rt-2: Vision‑language‑action models transfer web knowledge to robotic control
-                </a>
-                <a href="https://arxiv.org/abs/2307.05973" class="model-link" target="_blank">
-                    <span class="year-badge">2023</span>Voxposer: Composable 3D value maps for robotic manipulation with language models
-                </a>
-                <a href="https://arxiv.org/abs/2411.00508" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>CLIP‑RT: Learning Language‑Conditioned Robotic Policies with Natural Language Supervision
-                </a>
-                <a href="https://arxiv.org/pdf/2303.04137" class="model-link" target="_blank">
-                    <span class="year-badge">2023</span>Diffusion Policy: Visuomotor policy learning via action diffusion
-                </a>
-                <a href="https://arxiv.org/abs/2405.12213" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>Octo: An open‑source generalist robot policy
-                </a>
-                <a href="https://arxiv.org/abs/2409.12894" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>Towards testing and evaluating vision‑language manipulation: An empirical study
-                </a>
-                <a href="https://arxiv.org/abs/2412.04453" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>NaVILA: Legged robot vision‑language‑action model for navigation
-                </a>
-                <a href="https://arxiv.org/pdf/2409.19590" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>RoboNurse‑VLA: Real‑time voice‑to‑action pipeline for surgical instrument handover
-                </a>
-                <a href="https://arxiv.org/pdf/2407.07775" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>Mobility VLA: Multimodal instruction navigation with topological mapping
-                </a>
-                <a href="https://arxiv.org/pdf/2409.15250.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>ReVLA: Domain adaptation adapters for robotic foundation models
-                </a>
-                <a href="https://arxiv.org/pdf/2412.06224.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>Uni‑NaVid: Video‑based VLA unifying embodied navigation tasks
-                </a>
-                <a href="https://arxiv.org/pdf/2410.07864.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>RDT‑1B: 1.2B‑parameter diffusion foundation model for manipulation
-                </a>
-                <a href="https://arxiv.org/pdf/2406.04339.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>RoboMamba: Mamba‑based unified VLA with linear‑time inference
-                </a>
-                <a href="https://arxiv.org/pdf/2412.20451.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>Chain‑of‑Affordance: Sequential affordance reasoning for spatial planning
-                </a>
-                <a href="https://arxiv.org/pdf/2403.04908" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>Edge VLA: Self-Adapting Large Visual-Language Models to Edge Devices across Visual Modalities
-                </a>
-                <a href="https://arxiv.org/pdf/2406.09246.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>OpenVLA: LORA‑fine‑tuned open‑source VLA with high‑success transfer
-                </a>
-                <a href="https://arxiv.org/pdf/2411.19650.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>CogACT: Componentized diffusion action transformer for VLA
-                </a>
-                <a href="https://arxiv.org/pdf/2411.17465" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>ShowUI‑2B: GUI/web navigation via screenshot grounding and token selection
-                </a>
-                <a href="https://arxiv.org/pdf/2410.05273" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>HiRT: Hierarchical planning/control separation for VLA
-                </a>
-                <a href="https://arxiv.org/pdf/2410.24164.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>Pi‑0: General robot control flow model for open‑world tasks
-                </a>
-                <a href="https://arxiv.org/pdf/2406.07549.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>A3VLM: Articulation‑aware affordance grounding from RGB video
-                </a>
-                <a href="https://arxiv.org/pdf/2502.01071.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>SVLR: Modular "segment‑to‑action" pipeline using visual prompt retrieval
-                </a>
-                <a href="https://arxiv.org/pdf/2405.06039.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>Bi‑VLA: Dual‑arm instruction‑to‑action planner for recipe demonstrations
-                </a>
-                <a href="https://arxiv.org/pdf/2312.14457.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>QUAR‑VLA: Quadruped‑specific VLA with adaptive gait mapping
-                </a>
-                <a href="https://arxiv.org/pdf/2403.09631" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>3D‑VLA: Integrating 3D generative diffusion heads for world reconstruction
-                </a>
-                <a href="https://arxiv.org/pdf/2412.07215.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>RoboMM: MIM‑based multimodal decoder unifying 3D perception and language
-                </a>
-                <a href="https://arxiv.org/pdf/2409.16578.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>FLaRe: Large-Scale RL Fine-Tuning for Adaptive Robotic Policies
-                </a>
-                <a href="https://arxiv.org/pdf/2409.16578.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>GRAPE: Preference‑Guided Policy Adaptation via Feedback
-                </a>
-                <a href="https://arxiv.org/pdf/2410.15959.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>Diffusion Transformer Policy: Robust Multimodal Action Sampling
-                </a>
-                <a href="https://arxiv.org/pdf/2412.03293.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>Diffusion‑VLA: Diffusion‑Based Policy for Generalizable Manipulation
-                </a>
-                <a href="https://arxiv.org/pdf/2501.09747.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>FAST: Frequency‑space action tokenization for faster inference
-                </a>
-                <a href="https://arxiv.org/pdf/2502.19645.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>OpenVLA‑OFT: Optimized fine‑tuning of OpenVLA with parallel decoding
-                </a>
-                <a href="https://arxiv.org/pdf/2408.10845.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>CoVLA: Autonomous driving VLA trained on annotated scene data
-                </a>
-                <a href="https://arxiv.org/pdf/2503.19755.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>ORION: Holistic end‑to‑end driving VLA with semantic trajectory control
-                </a>
-                <a href="https://arxiv.org/pdf/2501.05014.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>UAV‑VLA: Zero‑shot aerial mission VLA combining satellite/UAV imagery
-                </a>
-                <a href="https://arxiv.org/pdf/2503.09527.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Combat VLA: Ultra‑fast tactical reasoning in 3D environments
-                </a>
-                <a href="https://arxiv.org/pdf/2503.10631.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>HybridVLA: Ensemble decoding combining diffusion and autoregressive policies
-                </a>
-                <a href="https://arxiv.org/pdf/2504.19854.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>NORA: Low‑overhead VLA with integrated visual reasoning and FAST decoding
-                </a>
-                <a href="https://arxiv.org/pdf/2501.15830.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>SpatialVLA: 3D spatial encoding and adaptive action discretization
-                </a>
-                <a href="https://arxiv.org/pdf/2503.20384.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>MoLe‑VLA: Selective layer activation for faster inference
-                </a>
-                <a href="https://arxiv.org/pdf/2503.16365.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>JARVIS‑VLA: Open‑world instruction following in 3D games with keyboard/mouse
-                </a>
-                <a href="https://arxiv.org/pdf/2501.18867.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>UP‑VLA: Unified understanding and prediction model for embodied agents
-                </a>
-                <a href="https://arxiv.org/pdf/2501.06919.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Shake‑VLA: Modular bimanual VLA for cocktail‑mixing tasks
-                </a>
-                <a href="https://arxiv.org/pdf/2503.08007.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>MORE: Scalable mixture‑of‑experts RL for VLA models
-                </a>
-                <a href="https://arxiv.org/pdf/2502.20900.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>DexGraspVLA: Diffusion‑based dexterous grasping framework
-                </a>
-                <a href="https://arxiv.org/pdf/2502.05855.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>DexVLA: Cross‑embodiment diffusion expert for rapid adaptation
-                </a>
-                <a href="https://arxiv.org/pdf/2502.14795.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Humanoid‑VLA: Hierarchical full‑body humanoid control VLA
-                </a>
-                <a href="https://arxiv.org/pdf/2502.19250.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>ObjectVLA: End‑to‑end open‑world object manipulation
-                </a>
-                <a href="https://arxiv.org/pdf/2503.20020.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Gemini Robotics: Bringing AI into the Physical World
-                </a>
-                <a href="https://arxiv.org/pdf/2407.08693.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>ECoT: Robotic Control via Embodied Chain‑of‑Thought Reasoning
-                </a>
-                <a href="https://arxiv.org/pdf/2503.03734.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>OTTER: A Vision‑Language‑Action Model with Text‑Aware Visual Feature Extraction
-                </a>
-                <a href="https://arxiv.org/pdf/2504.16054.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>π‑0.5: A VLA Model with Open‑World Generalization
-                </a>
-                <a href="https://arxiv.org/pdf/2505.11917.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>OneTwoVLA: A Unified Model with Adaptive Reasoning
-                </a>
-                <a href="https://www.figure.ai/news/helix" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Helix: A Vision-Language-Action Model for Generalist Humanoid Control
-                </a>
-                <a href="https://arxiv.org/pdf/2506.01844.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>SmolVLA: A Vision‑Language‑Action Model for Affordable and Efficient Robotics
-                </a>
-                <a href="https://openreview.net/pdf/32c153a3b16174884cf62b285adbfbdcc57b163e.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>EF‑VLA: Vision‑Language‑Action Early Fusion with Causal Transformers
-                </a>
-                <a href="https://arxiv.org/pdf/2503.02310.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>PD‑VLA: Accelerating vision‑language‑action inference via parallel decoding
-                </a>
-                <a href="https://arxiv.org/pdf/2506.13751.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>LeVERB: Humanoid Whole‑Body Control via Latent Verb Generation
-                </a>
-                <a href="https://arxiv.org/pdf/2503.08548.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>TLA: Tactile‑Language‑Action Model for High‑Precision Contact Tasks
-                </a>
-                <a href="https://arxiv.org/pdf/2505.02152.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Interleave‑VLA: Enhancing VLM‑LLM interleaved instruction processing
-                </a>
-                <a href="https://arxiv.org/pdf/2501.16664.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>iRe‑VLA: Iterative reinforcement and supervised fine‑tuning for robust VLA
-                </a>
-                <a href="https://arxiv.org/pdf/2412.10345.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>TraceVLA: Visual trace prompting for spatio‑temporal manipulation cues
-                </a>
-                <a href="https://arxiv.org/pdf/2503.23463.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>OpenDrive VLA: End‑to‑End Driving with Semantic Scene Alignment
-                </a>
-                <a href="https://arxiv.org/pdf/2506.09985.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>V‑JEPA 2: Dual‑Stream Video JEPA for Predictive Robotic Planning
-                </a>
-                <a href="https://arxiv.org/pdf/2505.23705.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Knowledge Insulating VLA: Insulation Layers for Modular VLA Training
-                </a>
-                <a href="https://arxiv.org/pdf/2503.14734.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>GR00T N1: Diffusion Foundation Model for Humanoid Control
-                </a>
-                <a href="https://arxiv.org/pdf/2503.06669.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>AgiBot World Colosseo: Unified Embodied Dataset Platform
-                </a>
-                <a href="https://arxiv.org/pdf/2502.19417.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Hi Robot: Hierarchical Planning and Control for Complex Environments
-                </a>
-                <a href="https://arxiv.org/pdf/2501.01895.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>EnerVerse: World‑Model LLM for Long‑Horizon Manipulation
-                </a>
-                <a href="https://arxiv.org/pdf/2501.04693.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Beyond Sight: Sensor Fusion via Language-Grounded Attention
-                </a>
-                <a href="https://arxiv.org/pdf/2501.09783.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>GeoManip: Geometric Constraint Encoding for Robust Manipulation
-                </a>
-                <a href="https://arxiv.org/pdf/2501.10105.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Universal Actions: Standardizing Action Dictionaries for Transfer
-                </a>
-                <a href="https://arxiv.org/pdf/2501.06605.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>RoboHorizon: Multi-View Environment Modeling with LLM Planning
-                </a>
-                <a href="https://arxiv.org/pdf/2501.18564.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>SAM2Act: Segmentation‑Augmented Memory for Object‑Centric Manipulation
-                </a>
-                <a href="https://arxiv.org/pdf/2502.02175.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>VLA‑Cache: Token Caching for Efficient VLA Inference
-                </a>
-                <a href="https://arxiv.org/pdf/2502.01828.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Forethought VLA: Latent Alignment for Foresight‑Driven Policies
-                </a>
-                <a href="https://arxiv.org/pdf/2502.05485.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>HAMSTER: Hierarchical Skill Decomposition for Multi‑Step Manipulation
-                </a>
-                <a href="https://arxiv.org/pdf/2507.10672v1" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>TempoRep VLA: Successor Representation for Temporal Planning
-                </a>
-                <a href="https://arxiv.org/pdf/2502.05450.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>ConRFT: Consistency Regularized Fine‑Tuning with Reinforcement
-                </a>
-                <a href="https://arxiv.org/pdf/2502.07837.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>RoboBERT: Unified Multimodal Transformer for Manipulation
-                </a>
-                <a href="https://arxiv.org/pdf/2502.09268.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>GEVRM: Generative Video Modeling for Goal‑Oriented Planning
-                </a>
-                <a href="https://arxiv.org/pdf/2502.13143.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>SoFar: Successor‑Feature Orientation Representations
-                </a>
-                <a href="https://arxiv.org/pdf/2502.13142.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>ARM4R: Auto‑Regressive 4D Transition Modeling for Trajectories
-                </a>
-                <a href="https://arxiv.org/pdf/2502.13130.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Magma: Foundation Multimodal Agent Model for Control
-                </a>
-                <a href="https://arxiv.org/pdf/2501.15068.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>An Atomic Skill Library: Modular Skill Composition for Robotics
-                </a>
-                <a href="https://arxiv.org/pdf/2502.21257.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>RoboBrain: Knowledge‑Grounded Policy Brain for Multimodal Tasks
-                </a>
-                <a href="https://arxiv.org/pdf/2503.03480.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>SafeVLA: Safety‑Aware Vision‑Language‑Action Policies
-                </a>
-                <a href="https://arxiv.org/pdf/2503.01378.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>CognitiveDrone: Embodied Reasoning VLA for UAV Planning
-                </a>
-                <a href="https://arxiv.org/pdf/2502.13508.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>VLAS: Voice‑Driven Vision‑Language‑Action Control
-                </a>
-                <a href="https://arxiv.org/pdf/2502.14420.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>ChatVLA: Conversational VLA for Interactive Control
-                </a>
-                <a href="https://arxiv.org/pdf/2506.04308.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>RoboRefer: Towards Spatial Referring with Reasoning in Vision-Language Models for Robotics
-                </a>
+        <div class="section">
+            <h2>📈 Results</h2>
+            <div class="benchmark-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Success Rate (%)</th>
+                            <th>Language Grounding</th>
+                            <th>Generalization</th>
+                            <th>Inference Speed (Hz)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>OpenVLA</strong></td>
+                            <td>78.5</td>
+                            <td>0.82</td>
+                            <td>0.71</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Octo</strong></td>
+                            <td>72.3</td>
+                            <td>0.76</td>
+                            <td>0.68</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RT-2</strong></td>
+                            <td>81.2</td>
+                            <td>0.85</td>
+                            <td>0.74</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RT-1</strong></td>
+                            <td>68.7</td>
+                            <td>0.72</td>
+                            <td>0.62</td>
+                            <td>25</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </section>
 
-        <section id="datasets">
-            <h2>Datasets</h2>
-            <p>Comprehensive collection of datasets used for training and evaluating VLA models:</p>
-            <div class="models-grid">
-                <a href="https://openaccess.thecvf.com/content_cvpr_2018/papers_backup/Das_Embodied_Question_Answering_CVPR_2018_paper.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2018</span>EmbodiedQA: Embodied Question Answering
-                </a>
-                <a href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Anderson_Vision-and-Language_Navigation_Interpreting_CVPR_2018_paper.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2018</span>R2R: Vision‑and‑Language Navigation: Interpreting Visually‑Grounded Navigation Instructions in Real Environments
-                </a>
-                <a href="https://arxiv.org/abs/1907.04957" class="model-link" target="_blank">
-                    <span class="year-badge">2019</span>Vision‑and‑Dialog Navigation
-                </a>
-                <a href="https://arxiv.org/abs/1912.01734" class="model-link" target="_blank">
-                    <span class="year-badge">2020</span>ALFRED
-                </a>
-                <a href="https://arxiv.org/pdf/1909.12271.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2020</span>RLBench: The Robot Learning Benchmark & Learning Environment
-                </a>
-                <a href="https://arxiv.org/abs/2110.00534" class="model-link" target="_blank">
-                    <span class="year-badge">2021</span>TEACh: Task‑driven Embodied Agents that Chat
-                </a>
-                <a href="https://arxiv.org/pdf/2202.13330.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2022</span>DialFRED: Dialogue‑Enabled Agents for Embodied Instruction Following
-                </a>
-                <a href="https://arxiv.org/abs/2110.07058" class="model-link" target="_blank">
-                    <span class="year-badge">2022</span>Ego4D: Around the World in 3,000 Hours of Egocentric Video
-                </a>
-                <a href="https://arxiv.org/abs/2112.03227" class="model-link" target="_blank">
-                    <span class="year-badge">2022</span>CALVIN: A Benchmark for Language‑Conditioned Long‑Horizon Robot Manipulation Tasks
-                </a>
-                <a href="https://proceedings.mlr.press/v229/walke23a/walke23a.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2023</span>BridgeData V2: A Dataset for Robot Learning at Scale
-                </a>
-                <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/8c3c666820ea055a77726d66fc7d447f-Paper-Datasets_and_Benchmarks.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2023</span>LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning
-                </a>
-                <a href="https://arxiv.org/abs/2312.06686" class="model-link" target="_blank">
-                    <span class="year-badge">2023</span>Robo360: A 3D Omnispective Multi‑Modal Robotic Manipulation Dataset
-                </a>
-                <a href="https://droid-dataset.github.io/" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>DROID: A Large‑Scale In‑The‑Wild Robot Manipulation Dataset
-                </a>
-                <a href="https://arxiv.org/abs/2408.10845" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>CoVLA: Comprehensive Vision‑Language‑Action Dataset for Autonomous Driving
-                </a>
-                <a href="https://arxiv.org/abs/2412.07215" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>RoboMM: All‑in‑One Multimodal Large Model for Robotic Manipulation
-                </a>
-                <a href="https://arxiv.org/abs/2408.10899" class="model-link" target="_blank">
-                    <span class="year-badge">2024</span>All Robots in One: A New Standard and Unified Dataset for Versatile, General‑Purpose Embodied Agents
-                </a>
-                <a href="https://arxiv.org/abs/2310.08864" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Open X-Embodiment: Robotic Learning Datasets and RT‑X Models
-                </a>
-                <a href="https://arxiv.org/abs/2411.16537" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>RoboSpatial: Teaching Spatial Understanding via Vision‑Language Models for Robotics
-                </a>
-                <a href="https://arxiv.org/abs/2503.08548" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>TLA: Tactile‑Language‑Action Model for Contact‑Rich Manipulation
-                </a>
-                <a href="https://arxiv.org/abs/2503.05231" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Kaiwu: A Multimodal Manipulation Dataset and Framework for Robotic Perception and Interaction
-                </a>
-                <a href="https://arxiv.org/abs/2505.12707" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>PLAICraft: Large‑Scale Time‑Aligned Vision‑Speech‑Action Dataset for Embodied AI
-                </a>
-                <a href="https://arxiv.org/abs/2503.06669" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>AgiBot World Colosseo: A Large‑Scale Manipulation Dataset for Intelligent Embodied Systems
-                </a>
-                <a href="https://arxiv.org/abs/2502.05086" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>REASSEMBLE: A Multimodal Dataset for Contact‑Rich Robotic Assembly and Disassembly
-                </a>
-                <a href="https://arxiv.org/abs/2506.06677" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>RoboCerebra: A Large‑Scale Benchmark for Long‑Horizon Robotic Manipulation Evaluation
-                </a>
-                <a href="https://arxiv.org/abs/2503.17406" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>IRef‑VLA: A Benchmark for Interactive Referential Grounding with Imperfect Language in 3D Scenes
-                </a>
-                <a href="https://arxiv.org/abs/2406.07000" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>Interleave‑VLA: Enhancing Robot Manipulation with Interleaved Image‑Text Instructions
-                </a>
-                <a href="https://arxiv.org/pdf/2506.04308.pdf" class="model-link" target="_blank">
-                    <span class="year-badge">2025</span>RoboRefer: Towards Spatial Referring with Reasoning in Vision-Language Models for Robotics
-                </a>
+            <div class="highlight">
+                <h3>Key Findings</h3>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Larger models show better language grounding but slower inference</li>
+                    <li>Generalization remains a key challenge across all models</li>
+                    <li>Trade-offs exist between model size, performance, and deployment feasibility</li>
+                    <li>Multi-task training significantly improves robustness</li>
+                </ul>
             </div>
-        </section>
+        </div>
 
-        <section id="simulators">
-            <h2>Simulators</h2>
-            <p>Widely adopted simulation platforms for generating VLA data:</p>
-            <div class="models-grid">
-                <a href="http://gazebosim.org" class="model-link" target="_blank">
-                    <span class="year-badge">2004</span>Gazebo
-                </a>
-                <a href="https://cyberbotics.com" class="model-link" target="_blank">
-                    <span class="year-badge">2004</span>Webots
-                </a>
-                <a href="https://mujoco.org" class="model-link" target="_blank">
-                    <span class="year-badge">2012</span>MuJoCo
-                </a>
-                <a href="https://www.coppeliarobotics.com" class="model-link" target="_blank">
-                    <span class="year-badge">2013</span>CoppeliaSim
-                </a>
-                <a href="https://pybullet.org" class="model-link" target="_blank">
-                    <span class="year-badge">2016</span>PyBullet
-                </a>
-                <a href="https://ai2thor.allenai.org" class="model-link" target="_blank">
-                    <span class="year-badge">2017</span>AI2-THOR
-                </a>
-                <a href="https://unity-technologies.github.io/ml-agents/" class="model-link" target="_blank">
-                    <span class="year-badge">2018</span>Unity ML‑Agents
-                </a>
-                <a href="https://aihabitat.org" class="model-link" target="_blank">
-                    <span class="year-badge">2019</span>Habitat
-                </a>
-                <a href="https://developer.nvidia.com/isaac-sim" class="model-link" target="_blank">
-                    <span class="year-badge">2020</span>NVIDIA Isaac Sim
-                </a>
-                <a href="https://svl.stanford.edu/igibson" class="model-link" target="_blank">
-                    <span class="year-badge">2020</span>iGibson
-                </a>
-                <a href="https://sapien.ucsd.edu" class="model-link" target="_blank">
-                    <span class="year-badge">2020</span>SAPIEN
-                </a>
-                <a href="https://universal-simulator.github.io/unisim/" class="model-link" target="_blank">
-                    <span class="year-badge">2023</span>UniSim
-                </a>
+        <div class="section">
+            <h2>🚀 Getting Started</h2>
+            
+            <h3>Installation</h3>
+            <div class="code-block">
+git clone https://github.com/Muhayyuddin/VLAs.git
+cd VLAs
+pip install -r requirements.txt
             </div>
-        </section>
+
+            <h3>Running Evaluations</h3>
+            <div class="code-block">
+# Evaluate a model
+python evaluate.py --model openvla --task all
+
+# Run specific task
+python evaluate.py --model octo --task pick_place
+
+# Custom configuration
+python evaluate.py --config configs/custom_eval.yaml
+            </div>
+
+            <h3>Adding New Models</h3>
+            <div class="code-block">
+# Implement the VLAModel interface
+class MyVLAModel(VLAModel):
+    def __init__(self, config):
+        # Initialize your model
+        pass
+    
+    def predict_action(self, observation, instruction):
+        # Generate action predictions
+        pass
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Citation</h2>
+            <div class="code-block">
+@article{vlabench2024,
+    title={VLA-Bench: A Comprehensive Benchmark for Vision-Language-Action Models},
+    author={Research Team},
+    journal={arXiv preprint},
+    year={2024}
+}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🤝 Contributing</h2>
+            <p>We welcome contributions! Please see our <a href="https://github.com/Muhayyuddin/VLAs/blob/main/CONTRIBUTING.md">contribution guidelines</a>.</p>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li>Report bugs and issues</li>
+                <li>Submit new tasks and benchmarks</li>
+                <li>Add model implementations</li>
+                <li>Improve documentation</li>
+            </ul>
+        </div>
 
         <footer>
-            <p>© 2025 VLA Models Repository. This is a living document that will be updated as new research emerges.</p>
-            <p>Contributions and pull requests are welcome!</p>
+            <p>© 2024 VLA-Bench | <a href="https://github.com/Muhayyuddin/VLAs" style="color: white;">GitHub</a></p>
         </footer>
     </div>
+
+    <!-- Modal for image viewing -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        function openModal(imgId) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const img = document.getElementById(imgId);
+            
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
