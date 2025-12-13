@@ -1,0 +1,7 @@
+,Factor1_Architecture,Factor2_Scale,Factor3_Performance
+Fusion Depth,0.394,0.183,-0.222
+Vision Model Size,0.669,0.175,-0.051
+Language Model Size,0.706,-0.153,0.099
+Task Difficulty,0.148,-0.519,-0.143
+Sensor Modalities,0.185,0.114,0.263
+Dataset Size,-0.03,0.143,-0.24
