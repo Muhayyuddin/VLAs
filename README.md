@@ -192,7 +192,7 @@ Below is the list of the VLAs reviewed in the paper
 ```
 @article{din2025multimodal,
   title={Multimodal Fusion with Vision-Language-Action Models for Robotic Manipulation: A Systematic Review},
-  author={Din, Muhayy Ud and Akram, Waseem and Saoud, Lyes Saad and Rosell, Jan and Hussain, Irfan},
+  author={Muhayy, Ud Din and Akram, Waseem and Saoud, Lyes Saad and Rosell, Jan and Hussain, Irfan},
   journal={Information Fusion},
   year={2025},
   publisher={Elsevier}
