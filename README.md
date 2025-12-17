@@ -1,6 +1,6 @@
 # Vision–Language–Action (VLA) Models in Robotics
 
-This repository was developed alongside the paper [Vision Language Action Models in Robotic Manipulation: A Systematic Review](https://arxiv.org/pdf/2507.10672) and provides a living catalog of:
+This repository was developed alongside the paper [Vision Language Action Models in Robotic Manipulation: A Systematic Review](https://muhayyuddin.github.io/VLAs/) and provides a living catalog of:
 
 - **Dataset Benchmarking Code**  
   Code to benchmark the datasets based on the task complexity and modality richness.
