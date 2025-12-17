@@ -190,14 +190,12 @@ Below is the list of the VLAs reviewed in the paper
 
 # Reference
 ```
-@misc{din2025visionlanguageactionmodels,
-      title={Vision Language Action Models in Robotic Manipulation: A Systematic Review}, 
-      author={Muhayy Ud Din and Waseem Akram and Lyes Saad Saoud and Jan Rosell and Irfan Hussain},
-      year={2025},
-      eprint={2507.10672},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2507.10672}, 
+@article{din2025multimodal,
+  title={Multimodal Fusion with Vision-Language-Action Models for Robotic Manipulation: A Systematic Review},
+  author={Din, Muhayy Ud and Akram, Waseem and Saoud, Lyes Saad and Rosell, Jan and Hussain, Irfan},
+  journal={Information Fusion},
+  year={2025},
+  publisher={Elsevier}
 }
 ```
 
