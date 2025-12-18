@@ -144,6 +144,8 @@ Below is the list of the VLAs reviewed in the paper
 [2025][ChatVLA: Conversational VLA for Interactive Control](https://arxiv.org/pdf/2502.14420.pdf)  
 [2024][Diffusion‑VLA: Diffusion‑Based Policy for Generalizable Manipulation](https://arxiv.org/pdf/2412.03293.pdf)  
 [2025][RoboRefer: Towards Spatial Referring with Reasoning in Vision-Language Models for Robotics](https://arxiv.org/pdf/2506.04308.pdf)  
+[2025][Cross-Platform Scaling of Vision-Language-Action Models from Edge to Cloud GPUs ](https://arxiv.org/pdf/2509.11480)  
+[2025][VOTE: Vision-Language-Action Optimization with Trajectory Ensemble Voting](https://arxiv.org/pdf/2507.05116)  
 
 # Datasets
 [2018][EmbodiedQA: Embodied Question Answering](https://openaccess.thecvf.com/content_cvpr_2018/papers_backup/Das_Embodied_Question_Answering_CVPR_2018_paper.pdf)  
