@@ -15,7 +15,19 @@ This repository was developed alongside the paper [Vision Language Action Models
 We aim to keep this list up to date as new VLA models, datasets, and simulation tools emerge. Contributions and pull requests adding recently published work or tooling are most welcome!  
 
 ---
-
+# Reference
+```
+@article{UDDIN2026104062,
+title = {Multimodal fusion with vision-language-action models for robotic manipulation: A systematic review},
+journal = {Information Fusion},
+volume = {129},
+pages = {104062},
+year = {2026},
+issn = {1566-2535},
+doi = {https://doi.org/10.1016/j.inffus.2025.104062},
+author = {Muhayy {Ud Din} and Waseem Akram and Lyes {Saad Saoud} and Jan Rosell and Irfan Hussain},
+}
+```
 ## Table of Contents
 - [Dataset Benchmarking Code](#Dataset-Benchmarking-Code)
 - [VLA Models](#vla-models)  
@@ -190,15 +202,7 @@ Below is the list of the VLAs reviewed in the paper
 [2023][UniSim:][UniSim](https://universal-simulator.github.io/unisim/)  
 [2020][SAPIEN:][SAPIEN](https://sapien.ucsd.edu) 
 
-# Reference
-```
-@article{din2025multimodal,
-  title={Multimodal Fusion with Vision-Language-Action Models for Robotic Manipulation: A Systematic Review},
-  author={Muhayy, Ud Din and Akram, Waseem and Saoud, Lyes Saad and Rosell, Jan and Hussain, Irfan},
-  journal={Information Fusion},
-  year={2025},
-  publisher={Elsevier}
-}
-```
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Muhayyuddin/VLAs&type=Date)](https://star-history.com/#Muhayyuddin/VLAs&Date)
 
 
